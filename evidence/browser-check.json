@@ -20,7 +20,7 @@
     "status": 200,
     "title": "0002 \u00b7 Merge evidence of the same cause \u00b7 support kb",
     "stamp": [
-      "desk ref DR-KV16-A6HE"
+      "desk ref DR-815J-S5FS"
     ],
     "links_checked": 3,
     "errors": []
@@ -30,7 +30,7 @@
     "status": 200,
     "title": "#4471 \u00b7 dates parse mm/dd in eu locales \u00b7 support kb",
     "stamp": [
-      "desk ref DR-KV16-A6HE"
+      "desk ref DR-815J-S5FS"
     ],
     "links_checked": 3,
     "errors": []
@@ -40,7 +40,7 @@
     "status": 200,
     "title": "#4471 review \u00b7 separate causes and unresolved timing symptoms \u00b7 support kb",
     "stamp": [
-      "desk ref DR-KV16-A6HE"
+      "desk ref DR-815J-S5FS"
     ],
     "cause_counts": {
       "parser": 379,
@@ -59,7 +59,7 @@
     "status": 200,
     "title": "Triage: duplicate reports \u00b7 support kb",
     "stamp": [
-      "desk ref DR-KV16-A6HE"
+      "desk ref DR-815J-S5FS"
     ],
     "same_tenant_form_verdict": "same modeled cause \u2014 inspect evidence before merging",
     "same_tenant_different_channel_verdict": "different modeled causes \u2014 keep apart",

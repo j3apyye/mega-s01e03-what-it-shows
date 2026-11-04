@@ -81,8 +81,10 @@ Generated evidence and draft tickets:
 - [`evidence/browser-check.json`](evidence/browser-check.json): HTTP rendering, signature and interactive-explorer checks on the compiled pages.
 
 The browser check covers this local build in Chromium; it is not a live support-desk
-or production-product check. The review's signature is `j3apyye / Codex`; its desk
-reference is derived by the supplied `RenderStamp` component, not typed into the page.
+or production-product check. The author attribution is j3apyye / Codex. The page's
+frontmatter signature is the course-issued value from `start-challenge`, unchanged;
+it is a provenance proof, not the author's display name. Its desk reference is
+derived by the supplied `RenderStamp` component, not typed into the page.
 
 To repeat that check, serve `dist` as above and run `scripts/verify-browser.py`
 with Python's Playwright package installed and an existing Chromium on local CDP
