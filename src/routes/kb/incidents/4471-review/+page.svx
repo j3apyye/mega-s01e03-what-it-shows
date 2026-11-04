@@ -2,7 +2,7 @@
 layout: runbook
 title: '#4471 review · separate causes and unresolved timing symptoms'
 owner: j3apyye
-status: investigated
+status: closed-per-desk
 reviewed: '2026-11-04'
 signature: 'j3apyye / Codex'
 ---
@@ -14,6 +14,7 @@ signature: 'j3apyye / Codex'
   import QueueTimeline from '#lib/kb/QueueTimeline.svelte';
   import Callout from '#lib/kb/Callout.svelte';
   import RenderStamp from '#lib/kb/RenderStamp.svelte';
+  import EngineeringUpdate from '#lib/kb/EngineeringUpdate.svelte';
 </script>
 
 The exported version of the [original incident](/kb/incidents/4471) described the merged
@@ -63,6 +64,20 @@ Do not count causes from intake tags or split them from subject lines alone.
 
 The cause counts above are the report assignments from the supplied export. The GitHub
 issues track the separate investigations; their issue numbers differ from source ticket #4471.
+
+## Engineering outcome
+
+<EngineeringUpdate />
+
+Close the parser investigation as completed according to the reported fix. Close the
+form-hint investigation as not planned because its form was retired, rather than
+claiming that the hint was repaired. These are the course's engineering outcomes;
+this export does not let us reproduce the production fix independently.
+
+The timing reports below remain historical evidence requiring reproduction if the
+symptoms recur. Their assigned count does not establish that engineering verified
+each symptom individually. Do not merge a new report into a closed ticket solely
+because the old classifier gives it the same modeled cause.
 
 ## Do not explain away the timing reports
 

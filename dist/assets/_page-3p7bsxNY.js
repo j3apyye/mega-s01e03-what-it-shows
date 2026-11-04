@@ -6,6 +6,9 @@ candidates; it is not the merge criterion.</li> <li>Merge evidence of the same c
 apart, even when the subjects match. Count distinct report IDs once.</li></ol> <!> <h2>Try it</h2> <!> <h2>When you are unsure</h2> <p>Keep the report separate pending investigation. An unknown tenant or a different symptom
 does not establish a duplicate. Ask for the original entered date, stored timestamp,
 timezone, invite payload and reproduction steps. Record the unresolved report IDs so a
-queued fix does not hide them. Recompute the page’s counts after a fresh export.</p> <!>`,1);function C(e,c){let p=o(c,x);t(e,s(()=>p,()=>m,{children:(e,t)=>{var o=S(),s=i(a(o),8);d(s,{children:(e,t)=>{r();var i=n(`The explorer shows that matching subjects can have different modeled causes, and different
+queued fix does not hide them. Recompute the page’s counts after a fresh export.</p> <p>For a report arriving after the <a href="/kb/incidents/4471-review">reported fix or form retirement</a>,
+check whether the relevant product path still exists and whether the reported fix applies.
+Do not merge automatically into a closed ticket. The supplied classifier describes this
+export’s routing model; it is not proof of the cause of a new failure.</p> <!>`,1);function C(e,c){let p=o(c,x);t(e,s(()=>p,()=>m,{children:(e,t)=>{var o=S(),s=i(a(o),8);d(s,{children:(e,t)=>{r();var i=n(`The explorer shows that matching subjects can have different modeled causes, and different
 subjects can share a cause. Its classifier does not read bodies; contradictory symptoms
-still need investigation. See the [#4471 review](/kb/incidents/4471-review).`);l(e,i)},$$slots:{default:!0}});var c=i(s,4);u(c,{});var p=i(c,6);f(p,{get signature(){return b}}),l(e,o)},$$slots:{default:!0}}))}export{C as n,m as r,p as t};
+still need investigation. See the [#4471 review](/kb/incidents/4471-review).`);l(e,i)},$$slots:{default:!0}});var c=i(s,4);u(c,{});var p=i(c,8);f(p,{get signature(){return b}}),l(e,o)},$$slots:{default:!0}}))}export{C as n,m as r,p as t};

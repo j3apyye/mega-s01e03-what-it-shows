@@ -32,3 +32,7 @@ Reproduce the failure before changing production code; compare the entered date,
 ## Included report IDs
 
 R-41230, R-41241, R-41251, R-41259, R-41262, R-41275, R-41294, R-41305, R-41308, R-41366, R-41372, R-41384, R-41387, R-41396, R-41400, R-41406, R-41415, R-41416, R-41418, R-41428, R-41439, R-41441, R-41449, R-41453, R-41456, R-41460, R-41472, R-41485, R-41493, R-41539, R-41572, R-41582, R-41584
+
+## Engineering outcome reported by the course
+
+The [course engineering update](https://hq.mega.dev/challenges/what-it-shows) reports source #4471 closed 05 oct. **WON'T FIX: booking-v3 form retired.** Close this investigation as **not planned** according to that report. This records the desk’s outcome; the export does not independently verify the production fix. Historical counts and timing exceptions remain visible above. A new report after the fix or retirement needs fresh investigation, not an automatic merge into this closed issue.

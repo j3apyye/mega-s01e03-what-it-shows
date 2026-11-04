@@ -48,8 +48,14 @@ with sync_playwright() as p:
                     row.locator('td').nth(0).inner_text(): int(row.locator('td').nth(1).inner_text())
                     for row in rows.all()}
                 assert result['cause_counts'] == {'parser': 379, 'hint': 33}, result
-                result['exceptions'] = page.locator('table').nth(1).locator('tbody tr').count()
+                exceptions = page.locator('table').filter(has=page.get_by_role('columnheader', name="reporter's words", exact=True))
+                result['exceptions'] = exceptions.locator('tbody tr').count()
                 assert result['exceptions'] == 5, result
+                engineering = page.locator('table').filter(has=page.get_by_role('columnheader', name='reported outcome', exact=True))
+                if engineering.count():
+                    result['engineering_outcomes'] = engineering.locator('tbody tr').all_text_contents()
+                    assert any('FIXED' in row for row in result['engineering_outcomes']), result
+                    assert any("WON'T FIX" in row for row in result['engineering_outcomes']), result
                 assert page.locator('svg rect').count() > 0
                 page.screenshot(path=str(root / 'evidence/review-page.png'), full_page=True)
             if route.endswith('/triage/dedupe/'):

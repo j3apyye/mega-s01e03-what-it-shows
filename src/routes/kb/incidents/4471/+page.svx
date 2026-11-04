@@ -2,7 +2,7 @@
 layout: runbook
 title: '#4471 · dates parse mm/dd in eu locales'
 owner: j3apyye
-status: needs-split
+status: closed-per-desk
 reviewed: '2026-11-04'
 signature: 'j3apyye / Codex'
 ---
@@ -13,6 +13,7 @@ signature: 'j3apyye / Codex'
   import Callout from '#lib/kb/Callout.svelte';
   import AuditTotals from '#lib/kb/AuditTotals.svelte';
   import RenderStamp from '#lib/kb/RenderStamp.svelte';
+  import EngineeringUpdate from '#lib/kb/EngineeringUpdate.svelte';
 </script>
 
 Since April, people have told us their bookings land on the wrong day. The report export
@@ -26,9 +27,14 @@ does not establish that either problem has been resolved. See the
 [signed review](/kb/incidents/4471-review) for the separate paths and unresolved symptoms.
 
 <Callout>
-This ticket combines different modeled causes. Give the form-hint problem its own ticket,
-and investigate the timing reports still assigned to the parser group.
+This ticket combined different modeled causes. The signed review separates their
+investigations and records the later engineering outcomes below.
 </Callout>
+
+<EngineeringUpdate />
+
+The reported parser fix and form retirement are different outcomes. They come from the
+course desk; the exported kb cannot independently verify the production fix.
 
 ## What was merged
 

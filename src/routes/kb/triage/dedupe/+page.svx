@@ -46,4 +46,9 @@ does not establish a duplicate. Ask for the original entered date, stored timest
 timezone, invite payload and reproduction steps. Record the unresolved report IDs so a
 queued fix does not hide them. Recompute the page's counts after a fresh export.
 
+For a report arriving after the [reported fix or form retirement](/kb/incidents/4471-review),
+check whether the relevant product path still exists and whether the reported fix applies.
+Do not merge automatically into a closed ticket. The supplied classifier describes this
+export's routing model; it is not proof of the cause of a new failure.
+
 <RenderStamp {signature} />

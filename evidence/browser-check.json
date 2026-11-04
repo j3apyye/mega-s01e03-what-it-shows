@@ -47,6 +47,10 @@
       "hint": 33
     },
     "exceptions": 5,
+    "engineering_outcomes": [
+      "parserFIXEDfix(dates): parse dd/mm for eu locales",
+      "hintWON'T FIXbooking-v3 form retired"
+    ],
     "links_checked": 4,
     "errors": []
   },
@@ -59,7 +63,7 @@
     ],
     "same_tenant_form_verdict": "same modeled cause \u2014 inspect evidence before merging",
     "same_tenant_different_channel_verdict": "different modeled causes \u2014 keep apart",
-    "links_checked": 3,
+    "links_checked": 4,
     "errors": []
   }
 ]

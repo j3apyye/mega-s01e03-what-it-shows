@@ -102,5 +102,11 @@ rendered page again; do not treat a change in report volume alone as a product f
 
 ## Filed GitHub issues
 
+After accepting the tickets, the course supplied an engineering update reporting
+source #4471 closed on `05 oct`: parser fixed (`fix(dates): parse dd/mm for eu locales`),
+hint won't fix (`booking-v3 form retired`). The signed pages and issue outcomes record
+that report without claiming independent production verification. Preserve the original
+report counts and investigate new symptoms rather than merging into closed tickets.
+
 - [parser: Shared date parser reads day-first input month first — 379 reports from #4471](https://github.com/j3apyye/mega-s01e03-what-it-shows/issues/1)
 - [hint: booking-v3 date hint conflicts with day-first tenant input — 33 reports from #4471](https://github.com/j3apyye/mega-s01e03-what-it-shows/issues/2)
