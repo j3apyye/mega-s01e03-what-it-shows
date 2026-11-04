@@ -1,0 +1,10 @@
+{
+  "parser": {
+    "url": "https://github.com/j3apyye/mega-s01e03-what-it-shows/issues/1",
+    "title": "Shared date parser reads day-first input month first \u2014 379 reports from #4471"
+  },
+  "hint": {
+    "url": "https://github.com/j3apyye/mega-s01e03-what-it-shows/issues/2",
+    "title": "booking-v3 date hint conflicts with day-first tenant input \u2014 33 reports from #4471"
+  }
+}

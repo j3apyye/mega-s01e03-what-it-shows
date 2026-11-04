@@ -1,0 +1,113 @@
+---
+layout: runbook
+title: '#4471 review · separate causes and unresolved timing symptoms'
+owner: j3apyye
+status: investigated
+reviewed: '2026-11-04'
+signature: 'j3apyye / Codex'
+---
+
+<script>
+  import AuditTotals from '#lib/kb/AuditTotals.svelte';
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import DeskExceptions from '#lib/kb/DeskExceptions.svelte';
+  import QueueTimeline from '#lib/kb/QueueTimeline.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+The exported version of the [original incident](/kb/incidents/4471) described the merged
+reports as one parser problem with one fix queued. Its own computed table did not support that conclusion.
+The booking form's hint and the shared parser are separate failure paths. Keeping them in
+one ticket can hide the form problem behind the parser's queued fix.
+
+This review uses the supplied export, not a live production investigation. Counts below
+come from the report IDs, tenant directory and executable classifier at render time.
+They measure report assignments; they do not prove the production cause of every report.
+
+## Reconcile the export
+
+<AuditTotals />
+
+The export's pages overlap. Deduplicate by report ID before filtering to #4471, grouping,
+or drawing a timeline. Different IDs remain separate reports even when their words match.
+The browser's locale and intake tag are guesses, not substitutes for the tenant directory.
+
+## Separate the problems
+
+<CauseTable ticket={4471} />
+
+The ticket column reflects the supplied export, before this review's GitHub filings.
+
+**Parser: day-first dates read month first.** The shared-parser behavior described in
+`src/lib/kb/causes.ts` reads dates month first. For a tenant using day-first dates,
+`07/04/2026` intended as 7 April can become 4 July. Harbour Dental's app reports
+R-41200 and R-41201 show this swap. Keep this problem in its own parser ticket.
+Use the parser row's count above, including its explicitly marked exceptions.
+
+**Hint: booking-v3 tells people to enter the other order.** For day-first tenants,
+booking-v3 prints `MM/DD/YYYY`, while its form reads dates in the tenant's order.
+The form can therefore misread an entry even if the shared parser is fixed.
+Copper Studio's form report R-41230 and Alder Physio's form report R-41241 follow
+this path. File a separate form-hint ticket with the hint row's count above.
+
+The classifier uses `Intl.DateTimeFormat` to determine the tenant's date order, then
+checks the report's channel and the tenant's form version. A booking-v3 tenant's app
+or email report still follows the parser rule; the hint rule applies to its form reports.
+Do not count causes from intake tags or split them from subject lines alone.
+
+## Filed tickets
+
+- [Parser investigation](https://github.com/j3apyye/mega-s01e03-what-it-shows/issues/1)
+- [Hint investigation](https://github.com/j3apyye/mega-s01e03-what-it-shows/issues/2)
+
+The cause counts above are the report assignments from the supplied export. The GitHub
+issues track the separate investigations; their issue numbers differ from source ticket #4471.
+
+## Do not explain away the timing reports
+
+<DeskExceptions />
+
+The desk's note label is broader than the words in the reports. R-41236 says the invite
+arrived before the booking; it does not actually describe a one-day move. R-41344 says
+people in Lisbon and Toronto saw different weekdays. A timezone explanation is plausible,
+but this export has no event instants, timezone settings or invite payloads to establish it.
+
+R-41202, R-41209 and R-41620 describe day discrepancies that the month/day-swap example
+does not explain. Keep their IDs visible in the parser investigation and obtain the
+original entered date, stored timestamp, timezone, rendered invite and reproduction steps.
+Do not claim they are a proven shared third bug, subtract them silently, or count them twice.
+
+R-41620 also says the reporter stopped reporting these failures. A smaller incoming count
+would therefore not, by itself, establish that the problem had been fixed.
+
+<Callout kind="warn">
+The classifier assigns a cause from tenant and channel; it never reads the report body.
+Its result is useful routing evidence, not proof that contradictory symptoms are resolved.
+</Callout>
+
+## The desk kept merging reports
+
+<QueueTimeline ticket={4471} />
+
+The chart separates when reports arrived from when the desk merged them. A bulk merge
+is a desk action, not a sudden increase in product failures. Reports continued after the
+bulk merge; "known" did not mean resolved in this snapshot.
+
+## Keep the next reports separate
+
+Use the [updated triage guidance](/kb/triage/dedupe) and
+[replacement decision](/kb/decisions/0002-dedupe-by-cause). Matching words can identify
+candidates to read, but cannot establish a common cause. Check tenant locale, form version,
+channel and the body before merging. Same-subject app and form reports from Alder Physio
+can belong to different problems; different-subject app and email reports from Kettle Books
+can belong to the same parser problem.
+
+Unknown tenants and bodies that do not fit the supposed cause need investigation, not an
+automatic merge. Preserve report IDs and recompute the totals as the desk receives reports.
+Recheck the page after a fix or fresh export; these counts describe this snapshot only.
+
+Prepared by Codex for j3apyye. The signature identifies this review, not an approval or
+production verification by the support desk.
+
+<RenderStamp {signature} />

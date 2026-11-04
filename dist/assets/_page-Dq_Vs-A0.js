@@ -1,0 +1,12 @@
+import{i as e,t}from"./runbook-DIZW6Ywj.js";import{j as n,k as r,n as i,r as a,x as o,y as s}from"./index-client-B55Gs7es.js";import{t as c}from"./DedupeExplorer-B8eHtcRP.js";import{t as l}from"./RenderStamp-DOSHZtmg.js";var u=e({default:()=>b,metadata:()=>d}),d={layout:`runbook`,title:`0002 · Merge evidence of the same cause`,owner:`j3apyye`,status:`proposed`,reviewed:`2026-11-04`,signature:`j3apyye / Codex`},{layout:f,title:p,owner:m,status:h,reviewed:g,signature:_}=d,v=new Set([`$$slots`,`$$events`,`$$legacy`]),y=o(`<p><strong>Date:</strong> 4 November 2026 · <strong>Author:</strong> j3apyye, prepared by Codex</p> <p><strong>Replaces:</strong> <a href="/kb/decisions/0001-dedupe-by-subject">decision 0001</a> in this proposed
+triage revision. The accepted original remains unchanged as history. Publication of
+this review does not establish that the live support desk has adopted the revision.</p> <h2>Context</h2> <p><a href="/kb/incidents/4471-review">Reviewing #4471</a> shows separate parser and booking-form-hint
+paths merged under one ticket. Subject matching cannot distinguish them. Conversely,
+different subjects can describe the same failure path.</p> <h2>Decision</h2> <p>Use subject matches to find candidates, then inspect the tenant’s locale, form version,
+channel and report body. Merge only when the evidence supports the same cause.</p> <p>For the modeled date failures, use the shared classifier and tenant directory. A matching
+classifier result is a starting point: contradictory symptoms need investigation. If the
+tenant is unknown or a cause cannot be established, keep the report separate and ask for
+the missing context. Keep report IDs and count distinct IDs once.</p> <h2>Consequences</h2> <p>The desk must read more context before merging. In return, a queued parser fix will not
+hide a separate form defect. New causes need evidence and a general rule before extending
+the classifier; do not invent a production cause from an intake tag or a note label.</p> <h2>Executable counterexamples</h2> <p>These examples use the existing classifier. The explorer does not inspect report bodies;
+it cannot resolve contradictory symptoms by itself.</p> <!> <!>`,1);function b(e,o){let u=i(o,v);t(e,a(()=>u,()=>d,{children:(e,t)=>{var i=y(),a=n(r(i),22);c(a,{});var o=n(a,2);l(o,{get signature(){return _}}),s(e,i)},$$slots:{default:!0}}))}export{b as n,d as r,u as t};

@@ -1,0 +1,65 @@
+[
+  {
+    "route": "/kb/",
+    "status": 200,
+    "title": "Support knowledge base \u00b7 support kb",
+    "stamp": [],
+    "links_checked": 6,
+    "errors": []
+  },
+  {
+    "route": "/kb/decisions/0001-dedupe-by-subject/",
+    "status": 200,
+    "title": "0001 \u00b7 Duplicates share a subject line \u00b7 support kb",
+    "stamp": [],
+    "links_checked": 1,
+    "errors": []
+  },
+  {
+    "route": "/kb/decisions/0002-dedupe-by-cause/",
+    "status": 200,
+    "title": "0002 \u00b7 Merge evidence of the same cause \u00b7 support kb",
+    "stamp": [
+      "desk ref DR-KV16-A6HE"
+    ],
+    "links_checked": 3,
+    "errors": []
+  },
+  {
+    "route": "/kb/incidents/4471/",
+    "status": 200,
+    "title": "#4471 \u00b7 dates parse mm/dd in eu locales \u00b7 support kb",
+    "stamp": [
+      "desk ref DR-KV16-A6HE"
+    ],
+    "links_checked": 3,
+    "errors": []
+  },
+  {
+    "route": "/kb/incidents/4471-review/",
+    "status": 200,
+    "title": "#4471 review \u00b7 separate causes and unresolved timing symptoms \u00b7 support kb",
+    "stamp": [
+      "desk ref DR-KV16-A6HE"
+    ],
+    "cause_counts": {
+      "parser": 379,
+      "hint": 33
+    },
+    "exceptions": 5,
+    "links_checked": 4,
+    "errors": []
+  },
+  {
+    "route": "/kb/triage/dedupe/",
+    "status": 200,
+    "title": "Triage: duplicate reports \u00b7 support kb",
+    "stamp": [
+      "desk ref DR-KV16-A6HE"
+    ],
+    "same_tenant_form_verdict": "same modeled cause \u2014 inspect evidence before merging",
+    "same_tenant_different_channel_verdict": "different modeled causes \u2014 keep apart",
+    "links_checked": 3,
+    "errors": []
+  }
+]

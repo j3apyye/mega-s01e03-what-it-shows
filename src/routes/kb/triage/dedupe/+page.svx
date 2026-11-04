@@ -1,0 +1,49 @@
+---
+layout: runbook
+title: 'Triage: duplicate reports'
+owner: j3apyye
+status: proposed
+reviewed: '2026-11-04'
+signature: 'j3apyye / Codex'
+---
+
+<script>
+  import DedupeExplorer from '#lib/kb/DedupeExplorer.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+A busy morning brings hundreds of reports about the same thing. We keep one ticket per issue
+and merge every duplicate into it, so engineering sees one thread with a count.
+
+## The rule
+
+This proposed revision follows [decision 0002](/kb/decisions/0002-dedupe-by-cause).
+The original accepted [decision 0001](/kb/decisions/0001-dedupe-by-subject) is preserved
+as history; the export cannot establish adoption by the live desk.
+
+1. Read the report body and identify the tenant, channel and relevant form version.
+2. Use the tenant's locale and the executable cause rule to identify candidate tickets.
+3. Check that the symptoms support the candidate cause. Subject similarity helps find
+   candidates; it is not the merge criterion.
+4. Merge evidence of the same cause and retain each report ID. Keep different causes
+   apart, even when the subjects match. Count distinct report IDs once.
+
+<Callout>
+The explorer shows that matching subjects can have different modeled causes, and different
+subjects can share a cause. Its classifier does not read bodies; contradictory symptoms
+still need investigation. See the [#4471 review](/kb/incidents/4471-review).
+</Callout>
+
+## Try it
+
+<DedupeExplorer />
+
+## When you are unsure
+
+Keep the report separate pending investigation. An unknown tenant or a different symptom
+does not establish a duplicate. Ask for the original entered date, stored timestamp,
+timezone, invite payload and reproduction steps. Record the unresolved report IDs so a
+queued fix does not hide them. Recompute the page's counts after a fresh export.
+
+<RenderStamp {signature} />

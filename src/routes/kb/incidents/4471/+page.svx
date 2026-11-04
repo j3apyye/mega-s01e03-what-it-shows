@@ -1,0 +1,47 @@
+---
+layout: runbook
+title: '#4471 · dates parse mm/dd in eu locales'
+owner: j3apyye
+status: needs-split
+reviewed: '2026-11-04'
+signature: 'j3apyye / Codex'
+---
+
+<script>
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import QueueTimeline from '#lib/kb/QueueTimeline.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import AuditTotals from '#lib/kb/AuditTotals.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+Since April, people have told us their bookings land on the wrong day. The report export
+contains repeated rows; the totals below are computed from distinct report IDs.
+
+<AuditTotals />
+
+**Previously merged as one issue.** The original page described a queued parser fix.
+The computed view separates the parser from a booking-form hint problem. That queued fix
+does not establish that either problem has been resolved. See the
+[signed review](/kb/incidents/4471-review) for the separate paths and unresolved symptoms.
+
+<Callout>
+This ticket combines different modeled causes. Give the form-hint problem its own ticket,
+and investigate the timing reports still assigned to the parser group.
+</Callout>
+
+## What was merged
+
+<CauseTable ticket={4471} />
+
+## Since April
+
+<QueueTimeline ticket={4471} />
+
+## Lessons
+
+- Merge evidence of a shared cause, not a matching subject. Preserve the report IDs.
+- Check the [proposed triage revision](/kb/triage/dedupe) before handling new reports.
+- A render-time count reflects this export; it does not prove a production fix.
+
+<RenderStamp {signature} />

@@ -1,0 +1,50 @@
+---
+layout: runbook
+title: '0002 · Merge evidence of the same cause'
+owner: j3apyye
+status: proposed
+reviewed: '2026-11-04'
+signature: 'j3apyye / Codex'
+---
+
+<script>
+  import DedupeExplorer from '#lib/kb/DedupeExplorer.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+**Date:** 4 November 2026 · **Author:** j3apyye, prepared by Codex
+
+**Replaces:** [decision 0001](/kb/decisions/0001-dedupe-by-subject) in this proposed
+triage revision. The accepted original remains unchanged as history. Publication of
+this review does not establish that the live support desk has adopted the revision.
+
+## Context
+
+[Reviewing #4471](/kb/incidents/4471-review) shows separate parser and booking-form-hint
+paths merged under one ticket. Subject matching cannot distinguish them. Conversely,
+different subjects can describe the same failure path.
+
+## Decision
+
+Use subject matches to find candidates, then inspect the tenant's locale, form version,
+channel and report body. Merge only when the evidence supports the same cause.
+
+For the modeled date failures, use the shared classifier and tenant directory. A matching
+classifier result is a starting point: contradictory symptoms need investigation. If the
+tenant is unknown or a cause cannot be established, keep the report separate and ask for
+the missing context. Keep report IDs and count distinct IDs once.
+
+## Consequences
+
+The desk must read more context before merging. In return, a queued parser fix will not
+hide a separate form defect. New causes need evidence and a general rule before extending
+the classifier; do not invent a production cause from an intake tag or a note label.
+
+## Executable counterexamples
+
+These examples use the existing classifier. The explorer does not inspect report bodies;
+it cannot resolve contradictory symptoms by itself.
+
+<DedupeExplorer />
+
+<RenderStamp {signature} />
